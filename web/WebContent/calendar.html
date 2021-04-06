@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar.html</title>
+    <style>
+        td:nth-of-type(1) {
+            background-color: red;
+        }
+        td:nth-of-type(7) {
+            background-color: skyblue;
+        }
+    </style>
+    <script src="javascript/cal.js"></script>
+</head>
+<body>
+    <!-- <table border="1">
+        <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+        <tr>
+            <td style="background-color: red;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td style="background-color: skyblue;">3</td>
+        </tr>
+        <tr>
+            <td style="background-color: red;">4</td>
+            <td>5</td>
+            <td style="background-color: yellow;">6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td style="background-color: skyblue;">10</td>
+        </tr>
+        <tr>
+            <td style="background-color: red;">25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td style="background-color: skyblue;"></td>
+        </tr>
+    </table> -->
+    <script>
+    // createCal();
+    createCalendar(2021, 1);
+    createCalendar(2021, 2);
+    createCalendar(2021, 3);
+
+    function createCalendar(year, month) {
+    let today = new Date(year, month - 1); // 월의 1
+    let thisYear = today.getFullYear(); // 2021
+    let thisMonth = today.getMonth(); // 3 : 0부터 1월
+    let thisDate = today.getDate(); // 6일
+    let thisDay = today.getDay(); // 0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토
+
+    let lastDate = new Date(thisYear, thisMonth+1, 0).getDate(); // 이번달의 마지막 날
+    let firstDate = new Date(thisYear, thisMonth, 1); 
+    let firstDay = firstDate.getDay(); // 이번달 첫째날의 요일
+    let days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+    let calendarTag = '<table border="1"><tr>';
+        calendarTag += '<caption>' + year + '년' + month + '월</caption>'
+        
+    for (let i = 0; i < 7; i++) {
+    calendarTag += '<th>' + days[i] + '</th>';
+    }
+    
+    calendarTag += '</tr><tr>';
+    for (let i = 0; i < firstDay; i++) {
+        calendarTag += '<td></td>';
+    }
+
+    for (let i = 1; i <= lastDate; i++) {
+        if( i % 7 == (7-firstDay)) { 
+           calendarTag += '<td>' + i + '</td></tr><tr>';
+        }
+        else if (i == thisDate) {
+            calendarTag += '<td style="background-color: yellow;">' + i + '</td>';
+        } else {
+            calendarTag += '<td>' + i + '</td>';
+        }
+    }
+    calendarTag += '</tr></table>';
+    document.write(calendarTag);
+}
+    </script>
+</body>
+</html>

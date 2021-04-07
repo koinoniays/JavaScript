@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>index.html</title>
-    <script src="javascript/basic.js"></script>
+    <!-- <script src="javascript/basic.js"></script>
     <script src="javascript/variable.js"></script>
-    <script src="javascript/operator.js"></script>
+    <script src="javascript/operator.js"></script> -->
     <style>
-        div {
+        /* div {
             float: left;
             width: 50px;
             height: 50px;
             background-color: yellow;
-        }
+        } */
     </style>
 </head>
 <body>
-
     <div id='show'></div>
-    <p />
-    <button id="btn" style="display:block" onclick="changeColor()">Change Color</button>
-    <script>
-        let colors = ['red', 'blue', 'green'];
+    <ul id='list'></ul>
+    <ul id="members"></ul>
+    <!-- <script src="javascript/object.js"></script> -->
+    <!-- <script src="javascript/class.js"></script> -->
+    <!-- <script src="javascript/object2.js"></script> -->
+    <!-- <script src="javascript/array.js"></script> -->
+    <!-- <script src="javascript/string.js"></script> -->
 
-        function changeColor() {
-            
-        }
+    <script>
+    // let userName = prompt("당신의 영문 이름은?","");
+
+    // let upperName = userName.toUpperCase();
+    // document.write(upperName, "<br>");
+
+    // let userNum = prompt("당신의 연락처는?", "");
+    // let result = userNum.substring(0, userNum.length - 4) + "****";
+    // document.write(result, "<br>");
+
+    // let userEmail = prompt ("당신의 이메일 주소는?", "");
+    // let arrUrl = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+
+    // let check1 = false;
+    // let check2 = false;
+
+    // if (userEamil.indexOf("@") > 0) {
+    //     check1 = true;
+    // }
+
+    // for (let i = 0; i<arrUrl.length; i++) {
+    //     if(userEmail.indexOf(arrUrl[i]) > 0) {
+    //         check2 = true;
+    //     }
+    // }
+
+    // if (check1 && check2) {
+    //     document.write(userEmail);
+    // } else {
+    //     alert("이메일 형식이 잘못되었습니다.");
+    // }
+
+    console.log(this); // window의 하위 요소들을 보여준다
+   
     </script>
 </body>
 </html>
